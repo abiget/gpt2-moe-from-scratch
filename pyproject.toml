@@ -1,0 +1,13 @@
+[project]
+name = "gpt2-moe-from-scratch"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "abiget", email = "getachewante@gmail.com" }]
+keywords = ["gpt2", "moe", "transformers", "pytorch", "deep learning"]
+dependencies = ["torch>=2.14.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
