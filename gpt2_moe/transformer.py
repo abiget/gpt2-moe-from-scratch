@@ -1,6 +1,5 @@
 import torch.nn as nn
 
-from gpt2_moe.feed_forward import FeedForward
 from gpt2_moe.multi_head_attention import MultiHeadAttention
 from gpt2_moe.layer_norm import LayerNorm
 from gpt2_moe.moes import MoEs

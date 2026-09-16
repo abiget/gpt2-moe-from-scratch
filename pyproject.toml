@@ -7,7 +7,12 @@ requires-python = ">=3.10"
 license = "MIT"
 authors = [{ name = "abiget", email = "getachewante@gmail.com" }]
 keywords = ["gpt2", "moe", "transformers", "pytorch", "deep learning"]
-dependencies = ["torch>=2.14.0"]
+dependencies = [
+    "matplotlib>=3.10.9",
+    "numpy>=2.2.6",
+    "tiktoken>=0.14.0",
+    "torch>=2.14.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

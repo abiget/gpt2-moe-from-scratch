@@ -17,8 +17,7 @@ class Router(nn.Module):
 
     def forward(self, x):
         gate_logits = self.gate(x)  # (b * num_tokens) x num_experts
-        top_k_scores, top_k_indices = torch.topk(
-            gate_logits, self.top_k, dim=-1
-        )  # (b * num_tokens) x top_k
+        # (b * num_tokens) x top_k
+        top_k_scores, top_k_indices = torch.topk(gate_logits, self.top_k, dim=-1)
         top_k_probs = nn.functional.softmax(top_k_scores, dim=-1)
-        return top_k_probs, top_k_indices
+        return top_k_probs, top_k_indices, gate_logits

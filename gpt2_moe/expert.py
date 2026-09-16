@@ -10,9 +10,9 @@ class Expert(nn.Module):
 
     def __init__(self, cfg):
         super().__init__()
-        self.W_up = nn.Linear(cfg["emb_dim"], 2 * cfg["emb_dim"])
-        self.W_gate = nn.Linear(cfg["emb_dim"], 2 * cfg["emb_dim"])
-        self.W_down = nn.Linear(2 * cfg["emb_dim"], cfg["emb_dim"])
+        self.W_up = nn.Linear(cfg["emb_dim"], cfg["emb_dim"])
+        self.W_gate = nn.Linear(cfg["emb_dim"], cfg["emb_dim"])
+        self.W_down = nn.Linear(cfg["emb_dim"], cfg["emb_dim"])
         self.silu = nn.SiLU()
 
     def forward(self, x):

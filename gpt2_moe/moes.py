@@ -16,7 +16,15 @@ class MoEs(nn.Module):
         # (b * num_tokens) x emb_dim
         x_flatten = x.reshape(batch_size * num_tokens, emb_dim)
 
-        top_k_probs, top_k_indices = self.router(x_flatten)  # (b * num_tokens) x top_k
+        # (b * num_tokens) x top_k
+        top_k_probs, top_k_indices, gate_logits = self.router(x_flatten)
+
+        if self.training:
+            self.last_gate_logits = gate_logits
+            self.last_top_k_indices = top_k_indices
+        else:
+            self.last_gate_logits = None
+            self.last_top_k_indices = None
 
         k = top_k_indices.shape[-1]
 
